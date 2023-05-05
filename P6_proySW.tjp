@@ -69,7 +69,7 @@ resource dev3 "Peter Green" {
 }
 resource dev4 "Cristina Marzo" {
   email "aaa@unizar.es"
-  limits { dailymax 4h weeklymax 20h monthlymax 100h }
+  limits { dailymax 4h }
 }
 
 # Now we specify the work packages. The whole project is described as
