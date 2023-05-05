@@ -212,7 +212,7 @@ task WMGame "Web & Mobile Game" {
       depends WMGame.tAndroidF.tGUId
     }
     task tFEt "Android Front End Test" {
-      effort 15d
+      effort 20d
       allocate dev1
       depends WMGame.tAndroidF.tFEc
     }    
@@ -240,7 +240,7 @@ task WMGame "Web & Mobile Game" {
       depends WMGame.tCloudB.tEvalp
     }
     task tDeployc "Cloud Deployment" {
-      effort 15d
+      effort 30d
       allocate dev2
       depends WMGame.tCloudB.tChoosep
     }    
