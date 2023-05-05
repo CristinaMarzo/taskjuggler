@@ -157,6 +157,7 @@ task WMGame "Web & Mobile Game" {
       allocate dev2, dev4
       actual:effort 15d
       depends WMGame.twebF
+      depends WMGame.tAndroidF
       depends WMGame.tback
   }
 
