@@ -156,11 +156,6 @@ task WMGame "Web & Mobile Game" {
       allocate boss
       allocate dev2, dev4
       actual:effort 15d
-      journalentry 2023-04-13 "Problems with the planned dates" {
-        author boss
-        alert red
-        summary "The whole team asiigned to this task has a trip to visit a new client from May 7th to May 12th. Needed to check if the project can be finished on time or it is necessary to reasign efforts."
-      }
       depends WMGame.twebF
       depends WMGame.tback
   }
