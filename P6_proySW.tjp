@@ -225,9 +225,9 @@ task WMGame "Web & Mobile Game" {
     depends WMGame.tback.tbackDev
 
     task tEvalp "Evaluate Cloud providers" {
-      effort 5d
-      actual:effort 10d
-      allocate dev2
+      effort 10d
+      actual:effort 15d
+      allocate dev2, dev4
       journalentry 2023-05-05 "Read and surf the Internet searching information" {
         author dev4
         alert green
