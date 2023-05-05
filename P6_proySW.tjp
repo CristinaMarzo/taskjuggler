@@ -287,6 +287,11 @@ textreport frame "" {
     center '<[report id="overview"]>'
   }
 
+  textreport ini "initial" {
+    formats html
+    center '<[report id="initial"]>'
+  }
+
   textreport "Status" {
     formats html
     center -8<-
