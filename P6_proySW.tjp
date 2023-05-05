@@ -146,7 +146,7 @@ task WMGame "Web & Mobile Game" {
     }    
   }
 
-  task ttest "Accpetance tests" {
+  task ttest "Acceptance tests" {
       minstart 2023-06-01
       effort 10d
       allocate boss
@@ -321,6 +321,22 @@ textreport frame "" {
 taskreport overview "" {
   scenarios actual
   headline "Current Project Plan"
+  columns bsi { title 'WBS' },
+          name, start, end, effort, cost,
+          revenue, chart { ${TaskTip} }
+  # For this report we like to have the abbreviated weekday in front
+  # of the date. %a is the tag for this.
+  timeformat "%a %Y-%m-%d"
+  loadunit days
+  hideresource @all
+  balance cost rev
+  caption 'All effort values are in man days.'
+}
+
+# Práctica 6 Proyecto Software Cristina Marzo Pardos
+taskreport initial "" {
+  scenarios plan
+  headline "Initial Project Plan"
   columns bsi { title 'WBS' },
           name, start, end, effort, cost,
           revenue, chart { ${TaskTip} }
