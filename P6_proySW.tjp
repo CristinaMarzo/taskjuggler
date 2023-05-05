@@ -19,7 +19,7 @@ project pSix "Web Game"  2023-03-15 +2.5m {
   # the project reports. If not specified, the current day will be
   # used, but this will likely be outside of the project range, so it
   # can't be seen in the reports.
-  now 2023-04-15-13:00
+  now 2023-05-05-13:00
   # The currency for all money values is the US Dollar.
   currency "EUR"
 
@@ -160,7 +160,6 @@ task WMGame "Web & Mobile Game" {
       depends WMGame.tback
   }
 
-    
   task deliveries "Milestones" {
 
     # Some milestones have customer payments associated with them. We
@@ -186,6 +185,65 @@ task WMGame "Web & Mobile Game" {
       charge 12000.0 onstart
     }
   }
+
+  # Práctica 6 Proyecto Software Cristina Marzo Pardos
+
+  task tAndroidF "Android Front End" {
+    purge chargeset
+    chargeset wFront
+    responsible dev1
+    depends WMGame.tback.tlogic
+
+    task tGUId "Android GUI Design" {
+      effort 9d
+      actual:effort 15d
+      allocate dev1
+      journalentry 2023-04-11 "Problems with the GUI design tool" {
+        author dev1
+        alert red
+        summary "The tool used for the GUI design has given me a lot of problems. I recommend to look for other one."
+      }
+    }
+    task tFEc "Android Front End Construction" {
+      effort 25d
+      allocate dev1, dev3
+      depends WMGame.tAndroidF.tGUId
+    }
+    task tFEt "Android Front End Test" {
+      effort 7d
+      allocate dev1
+      depends WMGame.tAndroidF.tFEc
+    }    
+  }
+
+  task tCloudB "Back End Cloud Deployment" {
+    purge chargeset
+    chargeset back
+    responsible dev2
+    depends WMGame.tback.tbackDev
+
+    task tEvalp "Evaluate Cloud providers" {
+      effort 5d
+      actual:effort 5d
+      allocate dev2
+      journalentry 2023-04-20 "Read and surf the Internet searching information" {
+        author dev2
+        alert green
+        summary "Gather information about main providers."
+      }
+    }
+    task tChoosep "Choose Cloud provider" {
+      effort 2d
+      allocate dev1, dev2, dev3
+      depends WMGame.tCloudB.tEvalp
+    }
+    task tDeployc "Cloud Deployment" {
+      effort 7d
+      allocate dev2
+      depends WMGame.tCloudB.tChoosep
+    }    
+  }
+  
 }
 
 # Now the project has been specified completely. Stopping here would
