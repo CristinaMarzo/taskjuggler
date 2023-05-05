@@ -202,7 +202,7 @@ task WMGame "Web & Mobile Game" {
       allocate dev1
       journalentry 2023-04-11 "Problems with the GUI design tool" {
         author dev1
-        alert red
+        alert yellow
         summary "The tool used for the GUI design has given me a lot of problems. I recommend to look for other one."
       }
     }
@@ -228,8 +228,8 @@ task WMGame "Web & Mobile Game" {
       effort 5d
       actual:effort 10d
       allocate dev2
-      journalentry 2023-04-20 "Read and surf the Internet searching information" {
-        author dev2
+      journalentry 2023-05-05 "Read and surf the Internet searching information" {
+        author dev4
         alert green
         summary "Gather information about main providers."
       }
