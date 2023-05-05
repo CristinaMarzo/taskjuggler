@@ -159,6 +159,7 @@ task WMGame "Web & Mobile Game" {
       depends WMGame.twebF
       depends WMGame.tAndroidF
       depends WMGame.tback
+      depends WMGame.tCloudB
   }
 
   task deliveries "Milestones" {
@@ -206,7 +207,7 @@ task WMGame "Web & Mobile Game" {
       }
     }
     task tFEc "Android Front End Construction" {
-      effort 25d
+      effort 30d
       allocate dev1, dev3
       depends WMGame.tAndroidF.tGUId
     }
@@ -225,7 +226,7 @@ task WMGame "Web & Mobile Game" {
 
     task tEvalp "Evaluate Cloud providers" {
       effort 5d
-      actual:effort 5d
+      actual:effort 10d
       allocate dev2
       journalentry 2023-04-20 "Read and surf the Internet searching information" {
         author dev2
@@ -234,12 +235,12 @@ task WMGame "Web & Mobile Game" {
       }
     }
     task tChoosep "Choose Cloud provider" {
-      effort 2d
+      effort 7d
       allocate dev1, dev2, dev3
       depends WMGame.tCloudB.tEvalp
     }
     task tDeployc "Cloud Deployment" {
-      effort 7d
+      effort 15d
       allocate dev2
       depends WMGame.tCloudB.tChoosep
     }    
