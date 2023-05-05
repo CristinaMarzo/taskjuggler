@@ -67,6 +67,10 @@ resource dev2 "Samantha Müller" {
 resource dev3 "Peter Green" {
   email "kkk@unizar.es"
 }
+resource dev4 "Cristina Marzo" {
+  email "aaa@unizar.es"
+  limits { dailymax 4h weeklymax 20h monthlymax 100h }
+}
 
 # Now we specify the work packages. The whole project is described as
 # a task that contains subtasks. These subtasks are then broken down
@@ -99,12 +103,12 @@ task WMGame "Web & Mobile Game" {
     task tBEd "Back End General Design" {
       # The effort to finish this task is 5 man-days.
       effort 5d
-      allocate dev1
+      allocate dev1, dev4
     }
     task tlogic "Game logic" {
       effort 12d
       actual:effort 11d
-      allocate dev1, dev2
+      allocate dev1, dev2, dev4
       depends WMGame.tback.tBEd
       journalentry 2023-03-28 "Game logic completed before deadline" {
         author boss
@@ -127,7 +131,7 @@ task WMGame "Web & Mobile Game" {
     task tGUId "Web GUI Design" {
       effort 9d
       actual:effort 15d
-      allocate dev3
+      allocate dev3, dev4
       journalentry 2023-04-11 "Problems with the GUI design tool" {
         author dev3
         alert yellow
@@ -141,7 +145,7 @@ task WMGame "Web & Mobile Game" {
     }
     task tFEt "Web Front End Test" {
       effort 6d
-      allocate dev1
+      allocate dev1, dev4
       depends WMGame.twebF.tFEc
     }    
   }
@@ -150,7 +154,7 @@ task WMGame "Web & Mobile Game" {
       minstart 2023-06-01
       effort 10d
       allocate boss
-      allocate dev2
+      allocate dev2, dev4
       actual:effort 15d
       journalentry 2023-04-13 "Problems with the planned dates" {
         author boss
@@ -287,7 +291,7 @@ textreport frame "" {
     center '<[report id="overview"]>'
   }
 
-  textreport ini "initial" {
+  textreport ini "Initial" {
     formats html
     center '<[report id="initial"]>'
   }
